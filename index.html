@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khadija — Brand & Visual Designer</title>
+<meta name="description" content="Khadija designs logos, brand identities, illustration systems, packaging and social content for small businesses and startup founders.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --canvas:#12201B;
+    --canvas-2:#0E1915;
+    --card:#1C2B24;
+    --card-line: rgba(244,239,226,0.10);
+    --paper:#F4EFE2;
+    --paper-2:#EDE6D3;
+    --ink:#12180F;
+    --ink-soft:#3A4238;
+    --text:#F4F0E4;
+    --muted:#B9C4B7;
+    --sun:#F5C64C;
+    --coral:#FF6B52;
+    --coral-ink:#5A160B;
+    --radius-lg: 26px;
+    --radius-md: 16px;
+    --maxw: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--canvas);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Bricolage Grotesque', sans-serif;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin:0;
+  }
+
+  .tag-font{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+
+  ::selection{ background:var(--sun); color:var(--ink); }
+
+  a:focus-visible, button:focus-visible{
+    outline: 3px solid var(--sun);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image: radial-gradient(rgba(244,239,226,0.045) 1px, transparent 1px);
+    background-size: 3px 3px;
+    pointer-events:none;
+    z-index:1;
+    opacity:0.6;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav-wrap{ position:sticky; top:0; z-index:50; padding:18px 20px 0; }
+  .nav{
+    max-width:var(--maxw); margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    background:rgba(18,32,27,0.72);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border:1px solid var(--card-line);
+    border-radius:100px;
+    padding:10px 10px 10px 20px;
+  }
+  .nav-mark{ display:flex; align-items:center; gap:8px; font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:1.05rem; }
+  .nav-mark .dot{ width:10px; height:10px; border-radius:50%; background:var(--coral); box-shadow:0 0 0 4px rgba(255,107,82,0.18); }
+  .nav-links{ display:flex; align-items:center; gap:6px; }
+  .nav-links a{ font-size:0.88rem; font-weight:600; color:var(--muted); padding:8px 14px; border-radius:100px; transition:color .2s ease, background .2s ease; }
+  .nav-links a:hover{ color:var(--text); background:rgba(244,239,226,0.06); }
+  .nav-cta{ background:var(--sun); color:var(--ink); font-weight:700; font-size:0.85rem; padding:10px 18px; border-radius:100px; white-space:nowrap; transition:transform .18s ease; }
+  .nav-cta:hover{ transform:translateY(-2px); }
+  @media (max-width:760px){ .nav-links a:not(.nav-cta){ display:none; } }
+
+  /* ---------- HERO ---------- */
+  .hero{ position:relative; padding:96px 0 70px; z-index:2; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--sun); background:rgba(245,198,76,0.10); border:1px solid rgba(245,198,76,0.25);
+    padding:7px 14px 7px 10px; border-radius:100px; margin-bottom:26px;
+  }
+  .eyebrow svg{ width:14px; height:14px; }
+
+  .hero h1{ font-size:clamp(2.6rem, 6.2vw, 5.1rem); line-height:0.98; max-width:14ch; }
+  .hero h1 em{
+    font-style:normal; color:var(--canvas); background:var(--sun);
+    padding:0 0.12em; border-radius:0.18em; display:inline-block; transform:rotate(-1.4deg);
+  }
+
+  .hero-sub{ margin-top:26px; font-size:1.14rem; line-height:1.55; color:var(--muted); max-width:46ch; }
+  .hero-sub strong{ color:var(--text); font-weight:600; }
+
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:14px; margin-top:38px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:15px 26px; border-radius:100px;
+    font-weight:700; font-size:0.95rem; transition:transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s ease;
+  }
+  .btn-primary{ background:var(--coral); color:var(--paper); box-shadow:0 10px 26px -10px rgba(255,107,82,0.55); }
+  .btn-primary:hover{ transform:translateY(-3px) rotate(-0.6deg); box-shadow:0 16px 30px -10px rgba(255,107,82,0.6); }
+  .btn-secondary{ background:transparent; color:var(--text); border:1.5px solid rgba(244,239,226,0.35); }
+  .btn-secondary:hover{ border-color:var(--sun); color:var(--sun); transform:translateY(-3px); }
+  .btn svg{ width:18px; height:18px; }
+
+  .chip-field{ position:relative; height:230px; margin-top:20px; }
+  .chip{
+    position:absolute; font-family:'Bricolage Grotesque', sans-serif; font-weight:700; font-size:0.92rem;
+    padding:11px 18px; border-radius:100px; border:1px solid var(--card-line); background:var(--card);
+    white-space:nowrap; will-change: transform; animation: bob 6s ease-in-out infinite;
+  }
+  .chip:nth-child(1){ top:0%;   left:2%;  color:var(--sun); animation-delay:0s; }
+  .chip:nth-child(2){ top:14%;  left:34%; color:var(--coral); animation-delay:0.6s; }
+  .chip:nth-child(3){ top:2%;   left:63%; color:var(--text); animation-delay:1.2s; }
+  .chip:nth-child(4){ top:56%;  left:10%; color:var(--text); animation-delay:1.8s; }
+  .chip:nth-child(5){ top:60%;  left:46%; color:var(--sun); animation-delay:0.3s; }
+  .chip:nth-child(6){ top:52%;  left:76%; color:var(--coral); animation-delay:0.9s; }
+
+  @keyframes bob{ 0%, 100%{ transform: translateY(0) rotate(-2deg); } 50%{ transform: translateY(-12px) rotate(2deg); } }
+  @media (max-width: 720px){ .chip-field{ display:none; } }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee-band{
+    border-top:1px solid var(--card-line); border-bottom:1px solid var(--card-line);
+    background:var(--canvas-2); overflow:hidden; padding:16px 0; position:relative; z-index:2;
+  }
+  .marquee-track{ display:flex; width:max-content; animation: scroll-left 32s linear infinite; }
+  .marquee-track span{
+    display:flex; align-items:center; font-family:'Bricolage Grotesque', sans-serif; font-weight:700;
+    font-size:1.05rem; color:var(--muted); padding:0 26px; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .marquee-track span::after{ content:"✦"; margin-left:26px; color:var(--coral); font-size:0.9rem; }
+  @keyframes scroll-left{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* ---------- SECTION shared ---------- */
+  section{ position:relative; z-index:2; }
+  .section-pad{ padding:110px 0; }
+  .section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:30px; margin-bottom:46px; flex-wrap:wrap; }
+  .section-label{ font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--coral); display:block; margin-bottom:14px; }
+  .section-head h2{ font-size:clamp(2rem, 4vw, 2.9rem); max-width:16ch; }
+  .section-desc{ color:var(--muted); max-width:38ch; line-height:1.6; font-size:1rem; }
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.is-in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- SERVICES ---------- */
+  .services{ background:var(--canvas); }
+  .service-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+  @media (max-width:900px){ .service-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .service-grid{ grid-template-columns:1fr; } }
+
+  .service-card{
+    background:var(--card); border:1px solid var(--card-line); border-radius:var(--radius-md); padding:26px 24px;
+    transition:transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .service-card:hover{ transform:translateY(-6px); border-color: rgba(245,198,76,0.4); background:#213329; }
+  .service-num{ font-family:'Caveat', cursive; font-size:1.4rem; color:var(--sun); font-weight:700; }
+  .service-card h3{ font-size:1.18rem; margin-top:10px; font-weight:700; }
+  .service-card p{ color:var(--muted); font-size:0.92rem; line-height:1.5; margin-top:8px; }
+
+  /* ---------- CASE STUDY ---------- */
+  .case-study{ background:linear-gradient(180deg, var(--canvas) 0%, var(--canvas-2) 100%); }
+  .case-intro{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:end; margin-bottom:50px; }
+  @media (max-width:850px){ .case-intro{ grid-template-columns:1fr; gap:24px; } }
+
+  .case-title-block .wordmark{
+    font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:clamp(3rem, 8vw, 5.5rem);
+    line-height:0.9; color:var(--sun); display:inline-block;
+  }
+  .case-title-block .sub-tag{ font-family:'Caveat', cursive; font-size:1.6rem; color:var(--coral); margin-left:8px; }
+  .case-meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+  .meta-pill{ font-size:0.8rem; font-weight:600; padding:7px 14px; border-radius:100px; border:1px solid var(--card-line); color:var(--muted); }
+  .case-copy p{ color:var(--muted); line-height:1.65; font-size:1rem; margin:0 0 14px; }
+  .case-copy strong{ color:var(--text); }
+
+  .case-hero-shot{ border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--card-line); margin-bottom:26px; aspect-ratio: 16/8; }
+  .case-hero-shot img{ width:100%; height:100%; object-fit:cover; }
+
+  .peel-grid{ display:grid; grid-template-columns:repeat(6, 1fr); grid-auto-rows:170px; gap:16px; }
+  @media (max-width:900px){ .peel-grid{ grid-template-columns:repeat(3,1fr); grid-auto-rows:150px; } }
+  @media (max-width:560px){ .peel-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:140px; } }
+
+  .peel-card{ position:relative; grid-column: span 2; grid-row: span 2; border-radius:18px; overflow:hidden; background:var(--paper); cursor:pointer; border:1px solid var(--card-line); }
+  .peel-card.wide{ grid-column:span 3; }
+  .peel-card.tall{ grid-row:span 3; }
+  .peel-card.small{ grid-column:span 2; grid-row:span 1; }
+  @media (max-width:900px){ .peel-card{ grid-column:span 3 !important; grid-row:span 2 !important; } }
+  @media (max-width:560px){ .peel-card{ grid-column:span 1 !important; } }
+
+  .peel-card img{ width:100%; height:100%; object-fit:cover; transition:transform .5s cubic-bezier(.2,.8,.2,1); }
+  .peel-card:hover img{ transform:scale(1.07); }
+
+  .peel-corner{
+    position:absolute; top:0; right:0; width:56px; height:56px; background:var(--coral);
+    clip-path: polygon(100% 0, 0 0, 100% 100%); transition: width .3s ease, height .3s ease; z-index:2;
+  }
+  .peel-card:hover .peel-corner{ width:82px; height:82px; }
+  .peel-corner::after{ content:"✦"; position:absolute; top:8px; right:8px; font-size:0.7rem; color:var(--coral-ink); }
+
+  .peel-label{
+    position:absolute; left:0; right:0; bottom:0; padding:10px 14px 12px;
+    background:linear-gradient(180deg, transparent, rgba(0,0,0,0.72) 70%);
+    display:flex; align-items:center; justify-content:space-between;
+    transform:translateY(60%); opacity:0; transition:transform .3s ease, opacity .3s ease;
+  }
+  .peel-card:hover .peel-label{ transform:translateY(0); opacity:1; }
+  .peel-label span.tag-font{ color:var(--sun); font-size:1.35rem; line-height:1; }
+
+  .process-strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:22px; }
+  @media (max-width:700px){ .process-strip{ grid-template-columns:1fr; } }
+  .process-strip figure{ margin:0; border-radius:16px; overflow:hidden; border:1px solid var(--card-line); aspect-ratio:4/3; position:relative; }
+  .process-strip img{ width:100%; height:100%; object-fit:cover; filter:saturate(0.92); }
+  .process-strip figcaption{
+    position:absolute; left:12px; bottom:10px; font-family:'Caveat', cursive; font-size:1.15rem; color:var(--paper);
+    background:rgba(18,32,27,0.55); padding:3px 10px; border-radius:8px; backdrop-filter:blur(3px);
+  }
+
+  /* ---------- MORE WORK ---------- */
+  .more-work{ background:var(--canvas-2); }
+  .more-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; }
+  @media (max-width:700px){ .more-grid{ grid-template-columns:1fr; } }
+  .ghost-card{
+    border:1.5px dashed rgba(244,239,226,0.22); border-radius:var(--radius-md); padding:34px 28px; min-height:190px;
+    display:flex; flex-direction:column; justify-content:space-between; transition:border-color .25s ease, background .25s ease;
+  }
+  .ghost-card:hover{ border-color:rgba(245,198,76,0.5); background:rgba(244,239,226,0.03); }
+  .ghost-card h3{ font-size:1.3rem; color:var(--text); }
+  .ghost-card p{ color:var(--muted); font-size:0.9rem; margin-top:10px; }
+  .ghost-tag{
+    align-self:flex-start; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--sun); border:1px solid rgba(245,198,76,0.3); padding:6px 12px; border-radius:100px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{ background:var(--canvas); }
+  .about-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap:60px; align-items:center; }
+  @media (max-width:850px){ .about-grid{ grid-template-columns:1fr; gap:36px; } }
+
+  .about-badge{
+    width:170px; height:170px; border-radius:50%; background:var(--sun); display:flex; align-items:center; justify-content:center;
+    text-align:center; color:var(--ink); font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:1.05rem;
+    line-height:1.3; transform:rotate(-6deg); margin-bottom:26px;
+  }
+
+  .about-copy p{ font-size:1.12rem; line-height:1.7; color:var(--muted); margin:0 0 18px; }
+  .about-copy strong{ color:var(--text); font-weight:600; }
+
+  .skill-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+  .skill-tags span{ font-size:0.85rem; font-weight:600; color:var(--text); background:var(--card); border:1px solid var(--card-line); padding:8px 16px; border-radius:100px; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ background:var(--sun); color:var(--ink); border-radius:40px 40px 0 0; margin-top:10px; }
+  .contact .section-pad{ padding:110px 0 70px; }
+  .contact h2{ font-size:clamp(2.2rem, 5.4vw, 4rem); max-width:16ch; line-height:1.02; color:var(--ink); }
+  .contact-sub{ color:var(--ink-soft); max-width:44ch; font-size:1.08rem; margin-top:20px; line-height:1.6; }
+  .contact-ctas{ display:flex; flex-wrap:wrap; gap:16px; margin-top:38px; }
+  .contact .btn-primary{ background:var(--ink); color:var(--paper); box-shadow:none; }
+  .contact .btn-primary:hover{ transform:translateY(-3px) rotate(-0.6deg); }
+  .contact .btn-secondary{ border-color: rgba(18,24,15,0.35); color:var(--ink); }
+  .contact .btn-secondary:hover{ border-color:var(--ink); }
+
+  .footer-row{
+    margin-top:80px; padding-top:26px; border-top:1.5px solid rgba(18,24,15,0.18);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+    font-size:0.85rem; color:var(--ink-soft);
+  }
+  .footer-row a{ font-weight:700; color:var(--ink); }
+  .footer-links{ display:flex; gap:18px; }
+
+  /* lightbox */
+  .lightbox{
+    position:fixed; inset:0; background:rgba(10,16,12,0.88); display:flex; align-items:center; justify-content:center;
+    padding:40px; z-index:200; opacity:0; pointer-events:none; transition:opacity .25s ease;
+  }
+  .lightbox.is-open{ opacity:1; pointer-events:auto; }
+  .lightbox img{ max-width:min(900px, 90vw); max-height:82vh; border-radius:14px; object-fit:contain; box-shadow:0 30px 80px rgba(0,0,0,0.5); }
+  .lightbox-cap{ position:absolute; bottom:34px; left:50%; transform:translateX(-50%); font-family:'Caveat', cursive; font-size:1.4rem; color:var(--sun); }
+  .lightbox-close{
+    position:absolute; top:26px; right:30px; width:44px; height:44px; border-radius:50%; background:var(--card);
+    border:1px solid var(--card-line); color:var(--text); display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem; cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav class="nav">
+    <a href="#top" class="nav-mark"><span class="dot"></span>Khadija</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Say hi</a>
+    </div>
+  </nav>
+</div>
+
+<main id="top">
+
+  <header class="hero wrap">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2L12 16.4 5.7 21l2.3-7.2-6-4.6h7.6z"/></svg>
+      Brand &amp; Visual Designer
+    </span>
+    <h1>Brands with <em>a pulse.</em></h1>
+    <p class="hero-sub">
+      I design <strong>logos, illustration systems, packaging and social content</strong> for small business owners and startup founders who want their brand to feel as good as it looks.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://wa.me/920000000000?text=Hi%20Khadija%2C%20I%27d%20love%20to%20talk%20about%20a%20branding%20project" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.8 14.24c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.32-1.65-.62-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .9 2.14.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.45.29.15.46.13.63-.08.17-.2.72-.84.92-1.13.19-.29.39-.24.65-.15.27.1 1.7.8 1.99.95.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <a class="btn btn-secondary" href="mailto:hello@khadijadesigns.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+        Email Me
+      </a>
+    </div>
+
+    <div class="chip-field" aria-hidden="true">
+      <span class="chip">Logo Design ✦</span>
+      <span class="chip">2D / 3D Elements</span>
+      <span class="chip">Brand Books ✦</span>
+      <span class="chip">Social Content</span>
+      <span class="chip">Packaging ✦</span>
+      <span class="chip">Illustration</span>
+    </div>
+  </header>
+
+  <div class="marquee-band">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>Logo Design</span><span>Brand Identity</span><span>Illustration</span><span>Packaging</span><span>Brand Books</span><span>Social Media</span>
+      <span>Logo Design</span><span>Brand Identity</span><span>Illustration</span><span>Packaging</span><span>Brand Books</span><span>Social Media</span>
+    </div>
+  </div>
+
+  <section class="services section-pad" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-label">What I Do</span>
+          <h2>One designer, the whole identity.</h2>
+        </div>
+        <p class="section-desc">From the first sketch of a logomark to the caption on your next Reel — everything stays consistent, considered, and unmistakably yours.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <span class="service-num">01</span>
+          <h3>Logo &amp; Identity</h3>
+          <p>Wordmarks, symbols and full identity systems built to hold up on a signboard and a favicon alike.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-num">02</span>
+          <h3>2D / 3D Elements</h3>
+          <p>Custom icons, mascots and rendered assets that give a brand a face people remember.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-num">03</span>
+          <h3>Print &amp; Digital Media</h3>
+          <p>Menus, packaging, signage, receipts, stationery — the small details that build trust.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-num">04</span>
+          <h3>Social Media Content</h3>
+          <p>Post systems for Instagram, TikTok and Facebook that keep your feed on-brand without the guesswork.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-num">05</span>
+          <h3>Brand Books</h3>
+          <p>A clear rulebook for color, type and tone — so your brand looks the same in every hand it passes through.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-num">06</span>
+          <h3>Custom Illustration</h3>
+          <p>Original symbols and characters made only for your brand — never a stock library in sight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study section-pad" id="work">
+    <div class="wrap">
+      <div class="case-intro reveal">
+        <div class="case-title-block">
+          <span class="section-label">Featured Case Study</span>
+          <span class="wordmark">Buttr</span><span class="sub-tag">— melt the mood</span>
+          <div class="case-meta">
+            <span class="meta-pill">Bakery &amp; Coffee</span>
+            <span class="meta-pill">Full Identity</span>
+            <span class="meta-pill">Packaging</span>
+            <span class="meta-pill">Merch</span>
+            <span class="meta-pill">Social</span>
+          </div>
+        </div>
+        <div class="case-copy">
+          <p>Buttr is a modern bakery café built on warmth and simple indulgence — the smell of fresh croissants, the first coffee of the day. The brief was to make that feeling visible.</p>
+          <p>I built the identity around <strong>a soft, melting mascot</strong>, a chunky rounded wordmark, and a warm terracotta-and-cream palette — then carried it across signage, packaging, merch, print and social so every touchpoint feels like the same warm hand made it.</p>
+        </div>
+      </div>
+
+      <div class="case-hero-shot reveal">
+        <img src="images/image_1.jpg" alt="Buttr bakery brand hero — bold wordmark over a loaf of sourdough bread" loading="lazy">
+      </div>
+
+      <div class="peel-grid reveal" id="peelGrid">
+        <div class="peel-card wide" data-cap="Storefront signage" data-full="images/image_2.jpg">
+          <img src="images/image_2.jpg" alt="Buttr storefront circular signage with mascot" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Signage</span></div>
+        </div>
+        <div class="peel-card" data-cap="Brand pattern & wordmark" data-full="images/image_9.jpg">
+          <img src="images/image_9.jpg" alt="Buttr brand pattern and wordmark detail on packaging corner" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Pattern</span></div>
+        </div>
+        <div class="peel-card" data-cap="Cup branding" data-full="images/image_3.jpg">
+          <img src="images/image_3.jpg" alt="Branded coffee cups with mascot illustration" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Cups</span></div>
+        </div>
+        <div class="peel-card small" data-cap="Takeaway packaging" data-full="images/image_4.jpg">
+          <img src="images/image_4.jpg" alt="Buttr takeaway box packaging design" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Packaging</span></div>
+        </div>
+        <div class="peel-card small" data-cap="Bakery bag" data-full="images/image_7.jpg">
+          <img src="images/image_7.jpg" alt="Croissant bakery bag with wordmark and pattern" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Bakery Bag</span></div>
+        </div>
+        <div class="peel-card wide tall" data-cap="Menu design" data-full="images/image_6.jpg">
+          <img src="images/image_6.jpg" alt="Buttr printed menu design, bakes and brews" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Menu</span></div>
+        </div>
+        <div class="peel-card" data-cap="Receipt & stationery" data-full="images/image_10.jpg">
+          <img src="images/image_10.jpg" alt="Buttr branded receipt design" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Receipt</span></div>
+        </div>
+        <div class="peel-card" data-cap="Merch — cap" data-full="images/image_11.jpg">
+          <img src="images/image_11.jpg" alt="Embroidered cap with mascot logo" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Cap</span></div>
+        </div>
+        <div class="peel-card" data-cap="Merch — tote bag" data-full="images/image_12.jpg">
+          <img src="images/image_12.jpg" alt="Tote bag with mascot illustration" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Tote</span></div>
+        </div>
+        <div class="peel-card" data-cap="Merch — tee" data-full="images/image_13.jpg">
+          <img src="images/image_13.jpg" alt="Embroidered long sleeve tee with logo" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Apparel</span></div>
+        </div>
+        <div class="peel-card wide" data-cap="Instagram content system" data-full="images/image_15.jpg">
+          <img src="images/image_15.jpg" alt="Instagram grid mockup of Buttr social media posts" loading="lazy">
+          <div class="peel-corner"></div>
+          <div class="peel-label"><span class="tag-font">Social Grid</span></div>
+        </div>
+      </div>
+
+      <div class="process-strip reveal">
+        <figure>
+          <img src="images/image_5.jpg" alt="Croissants being brushed with egg wash before baking" loading="lazy">
+          <figcaption class="tag-font">the mood before the shot</figcaption>
+        </figure>
+        <figure>
+          <img src="images/image_8.jpg" alt="Pour-over coffee being brewed in the café" loading="lazy">
+          <figcaption class="tag-font">brewed slow, on purpose</figcaption>
+        </figure>
+        <figure>
+          <img src="images/image_14.jpg" alt="Friends sharing croissants and coffee at a café table" loading="lazy">
+          <figcaption class="tag-font">designed to be shared</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="more-work section-pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-label">Coming Up</span>
+          <h2>More case studies, on the way.</h2>
+        </div>
+        <p class="section-desc">This spot is reserved for the next brand I get to build from the ground up — maybe yours.</p>
+      </div>
+      <div class="more-grid">
+        <div class="ghost-card reveal">
+          <span class="ghost-tag">In the works</span>
+          <div>
+            <h3>Next identity project</h3>
+            <p>A full brand system — logo, packaging and social — currently in progress.</p>
+          </div>
+        </div>
+        <div class="ghost-card reveal">
+          <span class="ghost-tag">Reserved</span>
+          <div>
+            <h3>This could be your brand</h3>
+            <p>Startup founder with a brand that needs a face? Let's talk about what goes here next.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about section-pad" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="about-badge">Small biz &amp; startup favorite</div>
+        </div>
+        <div class="about-copy reveal">
+          <span class="section-label">About</span>
+          <p>I'm Khadija — a brand and visual designer who works closely with <strong>small business owners and startup founders</strong> building something from scratch. I like brands that feel warm and specific, not generic and safe.</p>
+          <p>My process covers the full identity: <strong>logo design, custom illustration, brand books, print and packaging, and the social content</strong> that keeps a brand consistent long after the first delivery.</p>
+          <div class="skill-tags">
+            <span>Logo Design</span>
+            <span>Illustration</span>
+            <span>Brand Books</span>
+            <span>Packaging</span>
+            <span>Social Media Design</span>
+            <span>2D / 3D Elements</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap section-pad">
+      <span class="section-label" style="color:var(--coral-ink)">Let's Work Together</span>
+      <h2>Got a brand that needs some personality?</h2>
+      <p class="contact-sub">Tell me about your business, your audience, and where you're stuck — I'll reply with how I'd approach it.</p>
+      <div class="contact-ctas">
+        <a class="btn btn-primary" href="https://wa.me/920000000000?text=Hi%20Khadija%2C%20I%27d%20love%20to%20talk%20about%20a%20branding%20project" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.8 14.24c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.32-1.65-.62-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .9 2.14.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.45.29.15.46.13.63-.08.17-.2.72-.84.92-1.13.19-.29.39-.24.65-.15.27.1 1.7.8 1.99.95.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a class="btn btn-secondary" href="mailto:hello@khadijadesigns.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+          hello@khadijadesigns.com
+        </a>
+      </div>
+
+      <div class="footer-row">
+        <span>© <span id="year"></span> Khadija — Brand &amp; Visual Design</span>
+        <div class="footer-links">
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close image">✕</button>
+  <img src="" alt="" id="lightboxImg">
+  <span class="lightbox-cap tag-font" id="lightboxCap"></span>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el=> io.observe(el));
+
+  const chipField = document.querySelector('.chip-field');
+  if(chipField && window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    const chips = chipField.querySelectorAll('.chip');
+    document.querySelector('.hero').addEventListener('mousemove', (e)=>{
+      const r = chipField.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width/2) / r.width;
+      const y = (e.clientY - r.top - r.height/2) / r.height;
+      chips.forEach((c, i)=>{
+        const depth = (i % 3 + 1) * 6;
+        c.style.marginLeft = (x * depth) + 'px';
+        c.style.marginTop = (y * depth) + 'px';
+      });
+    });
+  }
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCap = document.getElementById('lightboxCap');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('.peel-card').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      lightboxImg.src = card.dataset.full;
+      lightboxImg.alt = card.querySelector('img').alt;
+      lightboxCap.textContent = card.dataset.cap || '';
+      lightbox.classList.add('is-open');
+    });
+  });
+  function closeLightbox(){ lightbox.classList.remove('is-open'); }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
